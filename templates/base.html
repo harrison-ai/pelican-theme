@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <title>{% block title %}{{ SITENAME }}{%endblock%}</title>
+  <meta name="author" content="{{ AUTHOR }}">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  {% block extra_meta %}
+  {% endblock %}
+
+  <link rel="top" href="#" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/base.css" type="text/css" />
+  <link rel="stylesheet" href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/style.css" type="text/css" />
+
+  {% block scripts %}
+  {% endblock %}
+
+</head>
+
+<body>
+  <div class="wrapper">
+    <nav id="sidebar">
+      <div class="sidebar-header">
+        <a href="/"><img src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/images/icons/Harrison-AI_Logo-Stack_White_RGB.svg"
+            alt="" height="100" class="align: center; d-inline-block align-text-middle"></a>
+      </div>
+
+      <p style="text-align: center;"><strong>Data Engineering Handbook</strong></p>
+
+
+      <nav class="pages">
+
+        <ul class="list-unstyled components">
+          <li class="active">
+            {% for line in TOC %}
+            {{ line }}
+            {% endfor %}
+          </li>
+        </ul>
+
+      </nav>
+
+  </div>
+  <div id="content" class="container-fluid">
+
+    {% block content %}{% endblock %}
+
+    <footer>
+
+      {% if SOCIAL %}
+      <aside>
+        <h2>Social</h2>
+        <ul class="social">
+          {% for name, link in SOCIAL %}
+          <li><a href="{{ link }}">{{ name }}</a><i></i></li>
+          {% endfor %}
+        </ul>
+      </aside>
+      {% endif %}
+
+      {% if LINKS %}
+      <aside>
+        <h2>Blogroll</h2>
+        <ul>
+          {% for name, link in LINKS %}
+          <li><a href="{{ link }}">{{ name }}</a></li>
+          {% endfor %}
+        </ul>
+      </aside>
+      {% endif %}
+
+      <p role="contentinfo">
+        © 2013 {{ AUTHOR }} - Proudly powered by <a href="http://alexis.notmyidea.org/pelican/">pelican</a>
+      </p>
+
+  </div>
+
+  <!-- </div> -->
+
+  <!-- </div> -->
+  <!-- jQuery CDN -->
+  <!-- <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script> -->
+  <!-- Bootstrap Js CDN -->
+  <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
+
+  <!-- <script type="text/javascript">
+    $(document).ready(function () {
+      $('.dropdown-toggle').on('click', function () {
+        $(this).next().toggleClass('active');
+      });
+    });
+  </script>
+-->
+
+</body>
+
+</html>
