@@ -46,7 +46,12 @@
   </div>
   <div id="content" class="container-fluid">
 
-    {% block content %}{% endblock %}
+
+    {% if page and page.unstable %}
+    <div id="draft-watermark"> Warning: Still Under Development </div>
+    {% endif %}
+    {% block content %}
+    {% endblock %}
 
     <footer>
 
